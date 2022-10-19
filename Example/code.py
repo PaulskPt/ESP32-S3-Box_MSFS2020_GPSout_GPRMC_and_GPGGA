@@ -534,7 +534,7 @@ def loop():
 
     print()
     print("MSFS2020 GPS GPRMC data reception decoder script")
-    print("(https://github.com/PaulskPt/ESP32-S3-Box_MSFS2020_GPSout_GPRMC_and_GPGGA")
+    print("(https://github.com/PaulskPt/ESP32-S3-Box_MSFS2020_GPSout_GPRMC_and_GPGGA)")
     print("\nNumber of loops in this run: {}".format(max_lp_cnt))
     chrs_rcvd = 0
     print("........................", end="\n")

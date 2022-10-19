@@ -1,0 +1,169 @@
+Wednesday 2022-10-19 16h19 utc+1
+Platforms:
+a) desktop PC with Microsoft Windows 11 Pro, running:
+   1) Microsoft Flightsimulator 2020, V 1.27.21.0
+   2) FSUIPC7
+   
+b) microcontroller: Espressif ESP32-S3-Box 
+
+IDE: mu-editor V1.1.1 
+
+REPL Output:
+
+
+soft reboot
+
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+code.py output:
+]0;🐍Wi-Fi: off | code.py | 8.0.0-beta.2\
+loop(): my_machine= "ESP32-S3-Box-2.5 with ESP32S3"
+
+MSFS2020 GPS GPRMC data reception decoder sketch by Paulsk (mailto: ct7agr@live.com.pt). 
+
+Number of loops in this run: 99
+........................
+
+Start of loop 1
+ck_uart(): nr of bytes=  120
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215807.00,A,5837.7935,N,13810.7771,W,164.0,319.8,161022,18.2,E*72\r\n$GPGGA,215807.00,5837.7935,N,13810.7771,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  33
+ck_uart(): rcvd data: bytearray(b',0.0,4266.7,M,0.0,M,0.0,0000*51\r\n810.7771,W,164.0,319.8,161022,18.2,E*72\r\n$GPGGA,215807.00,5837.7935,N,13810.7771,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215811.00,A,5837.9408,N,13811.0171,W,164.0,319.6,161022,18.2,E*76\r\n$GPGGA,215811.00,5837.9408,N,13811.0171,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*5B\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 01
+lcd_pr_msgs(): Duration rx -> lcd: 241 mSecs
+loop(): gc.mem_free()= 8148128
+Waiting for serial com line to become available...
+End of loop  1
+........................
+
+Start of loop 2
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215814.00,A,5838.0301,N,13811.1623,W,164.0,319.7,161022,18.2,E*7B\r\n$GPGGA,215814.00,5838.0301,N,13811.1623,W,1,05,0.0,4266.8,M,0.0,M,0.0,0000*58\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 02
+lcd_pr_msgs(): Duration rx -> lcd: 254 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  2
+........................
+
+Start of loop 3
+ck_uart(): nr of bytes=  120
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215816.00,A,5838.1219,N,13811.3112,W,164.1,319.7,161022,18.2,E*76\r\n$GPGGA,215816.00,5838.1219,N,13811.3112,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  33
+ck_uart(): rcvd data: bytearray(b',0.0,4266.7,M,0.0,M,0.0,0000*5B\r\n811.3112,W,164.1,319.7,161022,18.2,E*76\r\n$GPGGA,215816.00,5838.1219,N,13811.3112,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215819.00,A,5838.2133,N,13811.4596,W,164.1,319.7,161022,18.2,E*7E\r\n$GPGGA,215819.00,5838.2133,N,13811.4596,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*53\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.1, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 03
+lcd_pr_msgs(): Duration rx -> lcd: 258 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  3
+........................
+
+Start of loop 4
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215822.00,A,5838.3040,N,13811.6067,W,164.0,319.7,161022,18.2,E*7A\r\n$GPGGA,215822.00,5838.3040,N,13811.6067,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*56\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 04
+lcd_pr_msgs(): Duration rx -> lcd: 270 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  4
+........................
+
+Start of loop 5
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215824.00,A,5838.3946,N,13811.7535,W,164.0,319.8,161022,18.2,E*7F\r\n$GPGGA,215824.00,5838.3946,N,13811.7535,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*5C\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 05
+lcd_pr_msgs(): Duration rx -> lcd: 271 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  5
+........................
+
+Start of loop 6
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215827.00,A,5838.4857,N,13811.9009,W,164.0,319.8,161022,18.2,E*7E\r\n$GPGGA,215827.00,5838.4857,N,13811.9009,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*5D\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 06
+lcd_pr_msgs(): Duration rx -> lcd: 259 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  6
+........................
+
+Start of loop 7
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215829.00,A,5838.5762,N,13812.0474,W,164.0,319.8,161022,18.2,E*7C\r\n$GPGGA,215829.00,5838.5762,N,13812.0474,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*5F\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 07
+lcd_pr_msgs(): Duration rx -> lcd: 253 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  7
+........................
+
+Start of loop 8
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215832.00,A,5838.6672,N,13812.1946,W,164.0,319.8,161022,18.2,E*78\r\n$GPGGA,215832.00,5838.6672,N,13812.1946,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*5B\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 08
+lcd_pr_msgs(): Duration rx -> lcd: 250 mSecs
+loop(): gc.mem_free()= 8148128
+End of loop  8
+........................
+
+Start of loop 9
+ck_uart(): nr of bytes=  120
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215835.00,A,5838.7580,N,13812.3418,W,164.0,320.1,161022,18.2,E*77\r\n$GPGGA,215835.00,5838.7580,N,13812.3418,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  33
+ck_uart(): rcvd data: bytearray(b',0.0,4266.7,M,0.0,M,0.0,0000*57\r\n812.3418,W,164.0,320.1,161022,18.2,E*77\r\n$GPGGA,215835.00,5838.7580,N,13812.3418,W,1,05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): nr of bytes=  153
+ck_uart(): rcvd data: bytearray(b'$GPRMC,215837.00,A,5838.8487,N,13812.4884,W,164.0,319.8,161022,18.2,E*71\r\n$GPGGA,215837.00,5838.8487,N,13812.4884,W,1,05,0.0,4266.7,M,0.0,M,0.0,0000*52\r\n\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -11, $GPRMC at 0, $GPGGA at 74, n4 =114
+loop(): characters rcvd:  153
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 164.0, len(gs) = 5
+is_ac_stopped():  value of v_gs = 164
+loop(): handling msg nr: 09
+'Ctrl+C' pressed.Going to quit...
+Traceback (most recent call last):
+  File "code.py", line 1270, in <module>
+  File "code.py", line 1250, in main
+  File "code.py", line 635, in loop
+KeyboardInterrupt: 
+]0;🐍Wi-Fi: off | 635@code.py KeyboardInterrupt | 8.0.0-beta.2\
+Code done running.
+
+Press any key to enter the REPL. Use CTRL-D to reload.

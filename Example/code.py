@@ -557,10 +557,11 @@ def loop():
             wait_cnt = 0
             chrs_rcvd = ck_uart()
             print(TAG+"characters rcvd: ", chrs_rcvd)
+            if chrs_rcvd == -1:
+                raise KeyboardInterrupt
             if chrs_rcvd > 0:
                 lResult = split_types()
                 print(TAG+"split_types() result = {}".format(lResult))
-
                 if lResult == True:
                     msg_rx_ok += 1
                     if not is_ac_stopped():
@@ -658,78 +659,84 @@ def ck_uart():
     if use_diagnosics:
         rx_wait_start = monotonic_ns()
     while True:
-        nr_bytes = uart.readinto(rx_buffer)
-        #for i in range(5):
-        #    sleep(delay_ms)
-        loop_time = monotonic_ns()
-        if nr_bytes is None:
-            if my_debug:
-                print(TAG+"nr_bytes is None")
-            sleep(delay_ms)
-            continue
-        if not nr_bytes:
-            if my_debug:
-                print(TAG+"nr_bytes=", nr_bytes)
-            sleep(delay_ms)
-            continue
-        if nr_bytes > 1:
-            if not my_debug:
-                print(TAG+"nr of bytes= ", nr_bytes)
-                print(TAG+"rcvd data: {}".format(rx_buffer),end="\n")
-            if nr_bytes < 149: # Try to cut short checking. A full/OK msg has 153 characters
+        try:
+            rx_buffer = bytearray(rx_buffer_len * b'\x00')
+            nr_bytes = uart.readinto(rx_buffer)
+            #for i in range(5):
+            #    sleep(delay_ms)
+            loop_time = monotonic_ns()
+            if nr_bytes is None:
+                if my_debug:
+                    print(TAG+"nr_bytes is None")
                 sleep(delay_ms)
                 continue
-            # Check for '*' in tail. If present, the message is very probably complete.
-            tail_part = -17
-            n1 = rx_buffer[tail_part:].find('*') # find '*' in tail 10 characters. If not found, loop
-            #n1 = rx_buffer.find('*')
-            # print(TAG+f"n1 = {n1}")
-            if n1 < 0: # no '*' in tail
+            if not nr_bytes:
+                if my_debug:
+                    print(TAG+"nr_bytes=", nr_bytes)
                 sleep(delay_ms)
                 continue
-            else:
-                n2 = rx_buffer.find('$GPRMC')
-                # print(TAG+f"n2 = {n2}")
-                if n2 < 0:
-                    sleep(delay_ms)
-                    continue
-                else:
-                    nRMC = n2
-
-                n3 = rx_buffer.find('$GPGGA')
-                # print(TAG+f"n3 = {n3}")
-                if n3 < 0:
-                    sleep(delay_ms)
-                    continue
-                else:
-                    nGGA = n3
-                n4 = int(nr_bytes*0.75) # get 3/4 of length of characters received
-                # print(TAG+f"n4 = {n4}")
+            if nr_bytes > 1:
                 if not my_debug:
-                    #print(TAG+"n1 = {}, n2 = {}, n3= {}, n4 ={}".format(n1, n2, n3, n4))
-                    print(TAG+"* at {}, $GPRMC at {}, $GPGGA at {}, n4 ={}".format(n1+tail_part+1, n2, n3, n4))
-                if n2 > n4: # check if $GPRMC occurs at more than 3/4 of the characters received
+                    print(TAG+"nr of bytes= ", nr_bytes)
+                if nr_bytes < 147: # Try to cut short checking. A full/OK msg has 153 characters
+                    sleep(delay_ms)
+                    continue
+                print(TAG+"rcvd data: {}".format(rx_buffer),end="\n")
+                # Check for '*' in tail. If present, the message is very probably complete.
+                tail_part = -20
+                tp = rx_buffer[tail_part:]
+                #print(TAG+f"rx_buffer[{tail_part}:]= \'{tp}\'")
+                n1 = tp.find('*') # find '*' in tail 10 characters. If not found, loop
+                #n1 = rx_buffer.find('*')
+                print(TAG+f"n1 = {n1}")
+                if n1 < 0: # no '*' in tail
                     sleep(delay_ms)
                     continue
                 else:
-                    # print(TAG+"returning with {} nr of bytes".format(nr_bytes))
-                    if use_diagnosics:
-                        rx_wait_stop = monotonic_ns()
-                        rx_wait_duration = float((rx_wait_stop - rx_wait_start) / 1000000000) # convert nSec to mSec
-                        diagn_dict[msg_nr+1] = {0: rx_wait_duration, 1: -1} # add a key/value pair for diagnostics
-                        print(TAG+"it took {:6.2f} seconds for a complete msg ($GPRMC & $GPGGA) to be received".format(rx_wait_duration))
-                    #return nr_bytes
-                    break
-        elif nr_bytes == 1:
-            if rx_buffer[0] == b'\x00':
+                    n2 = rx_buffer.find('$GPRMC')
+                    # print(TAG+f"n2 = {n2}")
+                    if n2 < 0:
+                        sleep(delay_ms)
+                        continue
+                    else:
+                        nRMC = n2
+
+                    n3 = rx_buffer.find('$GPGGA')
+                    # print(TAG+f"n3 = {n3}")
+                    if n3 < 0:
+                        sleep(delay_ms)
+                        continue
+                    else:
+                        nGGA = n3
+                    n4 = int(nr_bytes*0.75) # get 3/4 of length of characters received
+                    # print(TAG+f"n4 = {n4}")
+                    if not my_debug:
+                        #print(TAG+"n1 = {}, n2 = {}, n3= {}, n4 ={}".format(n1, n2, n3, n4))
+                        print(TAG+"* at {}, $GPRMC at {}, $GPGGA at {}, n4 ={}".format(n1+tail_part+1, n2, n3, n4))
+                    if n2 > n4: # check if $GPRMC occurs at more than 3/4 of the characters received
+                        sleep(delay_ms)
+                        continue
+                    else:
+                        # print(TAG+"returning with {} nr of bytes".format(nr_bytes))
+                        if use_diagnosics:
+                            rx_wait_stop = monotonic_ns()
+                            rx_wait_duration = float((rx_wait_stop - rx_wait_start) / 1000000000) # convert nSec to mSec
+                            diagn_dict[msg_nr+1] = {0: rx_wait_duration, 1: -1} # add a key/value pair for diagnostics
+                            print(TAG+"it took {:6.2f} seconds for a complete msg ($GPRMC & $GPGGA) to be received".format(rx_wait_duration))
+                        #return nr_bytes
+                        break
+            elif nr_bytes == 1:
+                if rx_buffer[0] == b'\x00':
+                    sleep(delay_ms)
+                    i += 1
+                    if i % 1000 == 0:
+                        print("Waiting for uart line to become ready")
+            else:
+                empty_buffer()
                 sleep(delay_ms)
-                i += 1
-                if i % 1000 == 0:
-                    print("Waiting for uart line to become ready")
-        else:
-            empty_buffer()
-            sleep(delay_ms)
-            continue
+                continue
+        except KeyboardInterrupt:
+            nr_bytes = -1
     return nr_bytes
 
 """

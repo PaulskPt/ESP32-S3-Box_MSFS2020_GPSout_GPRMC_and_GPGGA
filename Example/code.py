@@ -218,7 +218,7 @@ else:
     LED_R = None
     LED_G = None
     LED_B = None
-    led3_red = None 
+    led3_red = None
     led3_green = None
     led3_blue = None
     HIGH = None
@@ -676,7 +676,7 @@ def ck_uart():
             if not my_debug:
                 print(TAG+"nr of bytes= ", nr_bytes)
                 print(TAG+"rcvd data: {}".format(rx_buffer),end="\n")
-            if nr_bytes < 150: # Try to cut short checking. A full/OK msg has 153 characters
+            if nr_bytes < 149: # Try to cut short checking. A full/OK msg has 153 characters
                 sleep(delay_ms)
                 continue
             # Check for '*' in tail. If present, the message is very probably complete.
@@ -1107,8 +1107,10 @@ def is_ac_stopped():
         if lelapsed:
             if lacStopMsgShown == False:
                 # lcd.clear()  # It takes about ten seconds before this message is shown after aircraft is stopped
+                pge1_lbl[1].text = ' '*max_text_len
                 pge1_lbl[2].text = 'Airplane is stopped'
                 pge1_lbl[3].text = 'or parked'
+                pge1_lbl[4].text = ' '*max_text_len
                 display.show(pge1_group)
                 lacStopMsgShown = True
             print(s, end = '\n') # Alway print to REPL (it does almost immediately)

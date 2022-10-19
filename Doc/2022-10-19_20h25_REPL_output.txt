@@ -1,0 +1,64 @@
+Wednesday 2022-10-19 20h25 utc+1
+Platforms:
+a) desktop PC with Microsoft Windows 11 Pro, running:
+   1) Microsoft Flightsimulator 2020, V 1.27.21.0
+   2) FSUIPC7
+   
+b) microcontroller: Espressif ESP32-S3-Box 
+
+IDE: mu-editor V1.1.1 
+
+REPL Output:
+
+
+soft reboot
+
+[...]
+
+
+Start of loop 67
+ck_uart(): nr of bytes=  149
+ck_uart(): rcvd data: bytearray(b'$GPRMC,020138.00,A,6110.4507,N,14959.0995,W,0.0,218.0,171022,15.3,E*7C\r\n$GPGGA,020138.00,6110.4507,N,14959.0995,W,1,05,0.0,30.7,M,0.0,M,0.0,0000*5C\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -15, $GPRMC at 0, $GPGGA at 72, n4 =111
+loop(): characters rcvd:  149
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 0.0, len(gs) = 3
+is_ac_stopped():  value of v_gs = 0
+is_ac_stopped():  lelapsed:True. lacStopMsgShown: True
+Aircraft is stopped or parked
+
+Start of loop 68
+ck_uart(): nr of bytes=  149
+ck_uart(): rcvd data: bytearray(b'$GPRMC,020141.00,A,6110.4507,N,14959.0995,W,0.0,218.0,171022,15.3,E*72\r\n$GPGGA,020141.00,6110.4507,N,14959.0995,W,1,05,0.0,30.7,M,0.0,M,0.0,0000*52\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -15, $GPRMC at 0, $GPGGA at 72, n4 =111
+loop(): characters rcvd:  149
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 0.0, len(gs) = 3
+is_ac_stopped():  value of v_gs = 0
+is_ac_stopped():  lelapsed:True. lacStopMsgShown: True
+Aircraft is stopped or parked
+
+Start of loop 69
+ck_uart(): nr of bytes=  149
+ck_uart(): rcvd data: bytearray(b'$GPRMC,020143.00,A,6110.4507,N,14959.0995,W,0.0,218.0,171022,15.3,E*70\r\n$GPGGA,020143.00,6110.4507,N,14959.0995,W,1,05,0.0,30.7,M,0.0,M,0.0,0000*50\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): * at -15, $GPRMC at 0, $GPGGA at 72, n4 =111
+loop(): characters rcvd:  149
+loop(): split_types() result = True
+is_ac_stopped():  value of gs = 0.0, len(gs) = 3
+is_ac_stopped():  value of v_gs = 0
+is_ac_stopped():  lelapsed:True. lacStopMsgShown: True
+Aircraft is stopped or parked
+
+
+Start of loop 73
+'Ctrl+C' pressed.Going to quit...
+Traceback (most recent call last):
+  File "code.py", line 1266, in <module>
+  File "code.py", line 1246, in main
+  File "code.py", line 638, in loop
+KeyboardInterrupt: 
+]0;🐍Wi-Fi: off | 638@code.py KeyboardInterrupt | 8.0.0-beta.2\
+Code done running.
+Auto-reload is on. Simply save files over USB to run them or enter REPL to disable.
+
+Press any key to enter the REPL. Use CTRL-D to reload.

@@ -215,12 +215,14 @@ if use_led3:
     led_interval = 1000
     led_state = HIGH  # idem. When HIGH the LED is OFF
 else:
-    HIGH = None
-    LOW = None
     LED_R = None
     LED_G = None
     LED_B = None
-
+    led3_red = None 
+    led3_green = None
+    led3_blue = None
+    HIGH = None
+    LOW = None
 
 biLdIsOn = False # Flag for the FeatherS2 built-in blue led
 
@@ -949,15 +951,6 @@ def led_BI_toggle():
 
     """
     global led, biLdIsOn
-
-    if biLdIsOn:
-        #led.value = 0
-        feathers2.led_set(0)
-        biLdIsOn = False
-    else:
-        #led.value = 1
-        feathers2.led_set(1)
-        biLdIsOn = True
     """
 
 """

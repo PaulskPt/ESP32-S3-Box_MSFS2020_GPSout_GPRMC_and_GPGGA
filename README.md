@@ -15,16 +15,16 @@ a) a Personal computer running Microsoft Windows 11 or a Microsoft XBox seriex X
 
 b) Espressif ESP32-S3-Box (v 2.5): https://www.espressif.com/en/dev-board/esp32-s3-box-en or: https://www.adafruit.com/product/5290;
 
-c) Adafruit MCP2221A breakout - General Purpose USB to GPIO ADC I2C - Stemma QT / Qwiic (Product ID 4471 https://www.adafruit.com/product/4471).
+c) Adafruit CP2021N Friend - USB to Serial Converter (Product nr 5335, https://www.adafruit.com/product/5335) (signal levels are 3.3V);
    Other type of USB to RS232 serial converters I tested are:
-   - Adafruit CP2021N Friend - USB to Serial Converter ( Product nr 5335, https://www.adafruit.com/product/5335) (signal levels are 3.3V);
+   - Adafruit MCP2221A breakout - General Purpose USB to GPIO ADC I2C - Stemma QT / Qwiic (Product ID 4471 https://www.adafruit.com/product/4471).
    - Model YP-05. Attention: use a model that is able to provide or set for logic 3V3 level signals;
 
-Flow of the GPS data:  PC MSFS2020 w FSUIPC7 > COMx > MCP2221 TX/RX > esp-box U0RX (board.G44) / U0TX (board.G43).
+Flow of the GPS data:  PC MSFS2020 w FSUIPC7 > COMx > CP2102n TX/RX > esp-box U0RX (board.G44) / U0TX (board.G43).
 ```
-Serial connection: MCP2221 TX > esp-box U0RX
-                   MCP2221 RX > esp-box U0TX
-                   MCP2221 GND > esp-box GND
+Serial connection: CP2102N TX > esp-box U0RX
+                   CP2102N RX > esp-box U0TX
+                   CP2102N GND > esp-box GND
 ```
 This project uses circuitpython.
 
@@ -65,7 +65,8 @@ Notes about the Sparkfun serLCD.
 NOTE: The baudrate is set to 4800 baud (inside the FSUIPC7 > GPSout > 1 (or > 2). There, also select the correct COM-port for MS Windows 11)
 
 Data Indicator LED:
-Many USB-to-Serial converters have a LED that signals the presence of data. The YP-5 listed under d) above has such a LED.
+Many USB-to-Serial converters have a LED that signals the presence of data. The CP2102N and YP-5 listed under c) above have such a LED.
+The script does blink the RGB LED on the piggy-back external board in color green at the moment valid GPS data has been received.
 
 I used the Mu-editor app to save, edit and test the script file: ```code.py```.
 

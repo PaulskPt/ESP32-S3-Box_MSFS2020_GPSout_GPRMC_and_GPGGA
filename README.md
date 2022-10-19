@@ -40,17 +40,6 @@ From the filtered GPRMC GPS type of datagram this project only uses the ```Track
 ```
 
 ```
-Notes about the Sparkfun serLCD. 
-- Contrast:
-  The contrast of this device is quite depending on the applied Voltage. 
-  My experience is that you have to experiment.
-  See line 550 of the script:
-  lcd.set_contrast(150)  # default value 120
-- Pins are touch sensitive:
-  Touching certain pins causes artifacts in the screen that can only be deleted by issuing a lcd.clear() 
-  or resetting the device.
-
-
 +---------------------------------------+
 | USB-UART-to-esp-box U0TX/U0RX pins:   |
 +-----------------+---------------------+

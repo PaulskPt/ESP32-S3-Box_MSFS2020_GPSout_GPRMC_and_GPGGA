@@ -57,6 +57,23 @@ Data Indicator LED:
 Many USB-to-Serial converters have a LED that signals the presence of data. The CP2102N and YP-5 listed under c) above have such a LED.
 The script does blink the RGB LED on the piggy-back external board in color green at the moment valid GPS data has been received.
 
+Two versions
+============
+
+Version 1:
+==========
+This is the original version;
+
+Version 2:
+==========
+This version was only possible since @Danh (Discord > Adafruit) on October 26, 2022, solved a bug in CircuitPython V8.0.0-beta.3,
+because it did crash the ESP32-S3-BOX as soon as the wifi.radio.connect() was called.
+Version 2 has the following additions:
+- date & time synchronization from Adafruit IO Time Serviect.
+  The script connects automatically to the WiFi Access Point of your choice (set the ```ssid``` and ```password``` in file ```.env``` (do the same in file ```secrets.py``` for backup situations). When a WiFi connection has been established, the script, at intervals (set in function loop() by local variable: ```interval_t```. The value of this variable defaults to 600 seconds or 10 minutes), gets from ```Adafruit IO Time Service``` the date & time. Then the internal Realtime Clock (RTC) will be synchronized to the received date & time. Note that one needs to set the values for the keys ```aio_username``` and ```aio_key``` in file ```secrets.py```.
+- Implementation of display touch. This is still in development. The idea is to 'jump' to a settings menu after a touch event has been reecognized.
+  In this moment are added the functions: ```clr_touch(), ck_touch() and menu_touch()```. At the start of the script just after the creation of the touch type object (tt) a call is being made to clr_touch() to empty touch events that could have been active at the start of the script. Then, in every iteration in ```loop()``` also a call has made to clr_touch() when the global flag ```tt_touched``` is True.
+
 I used the Mu-editor app to save, edit and test the script file: ```code.py```.
 
 

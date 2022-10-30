@@ -66,7 +66,7 @@ This is the original version;
 
 Version 2:
 ==========
-This version was only possible since @Danh (Discord > Adafruit) on October 26, 2022, solved a bug in CircuitPython V8.0.0-beta.3,
+This version was only possible since @Danh (Discord > Adafruit) on October 27, 2022, solved a bug in CircuitPython V8.0.0-beta.3,
 because it did crash the ESP32-S3-BOX as soon as the wifi.radio.connect() was called.
 Version 2 has the following additions:
 - date & time synchronization from Adafruit IO Time Serviect.

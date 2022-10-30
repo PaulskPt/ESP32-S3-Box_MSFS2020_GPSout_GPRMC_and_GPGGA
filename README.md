@@ -74,7 +74,7 @@ Version 2 has the following additions:
 - Implementation of display touch. This is still in development. The idea is to 'jump' to a settings menu after a touch event has been recognized.
   In this moment are added the functions: ```clr_touch(), ck_touch() and menu_touch()```. At the start of the script, just behind the creation of the touch type object (tt), a call is being made to ```clr_touch()``` to empty touch events that could have been active at the start of the script. Then, in every iteration of ```loop()```, also a call has made to ```clr_touch()``` when the global flag ```tt_touched``` is True.
 
-I used the Mu-editor app to save, edit and test the script file: ```code.py```.
+I used the Mu-editor app to save, edit and test the script file: ```code.py```. I also used VSCode to find bugs and to copy the list of variables and functions.
 
 
 Disclamer:

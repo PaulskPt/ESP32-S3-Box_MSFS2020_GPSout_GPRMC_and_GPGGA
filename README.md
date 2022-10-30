@@ -30,8 +30,8 @@ This project uses circuitpython.
 
 Goals of this project:
 
-To receive, filter and use certain elements of GPRMC GPS datagram data sent by an add-on called ```FSUIPC7``` to the ```Microsoft Flight Simulator 2020 (FS2020)```.
-From the filtered GPRMC GPS type of datagram this project only uses the ```Track made good true``` and the ```groundspeed```. The track flown by the aircraft is displayed on the 4x20 serLCD, only when the groundspeed value exceeds a certain minimum value set in the micropython script. If the groundspeed is zero the aircraft is assumed to be halted or be parked. In that case the script will display ```Airplane stopped or parked```. When the groundspeed is > 0.2 and < 30 kts, the script will display ```Airplane is taxying```.  As soon as the groundspeed exceeds 30 kts the following data will be displayed onto the 4x20 serLCD:
+To receive, filter and use certain elements of GPRMC and GPGGA GPS datagrams data sent by an add-on called ```FSUIPC7``` to the ```Microsoft Flight Simulator 2020 (FS2020)```.
+From the filtered GPRMC GPS datagram message this project uses the airplane's position in ```Latitude``` and ```Longitude```, the ```groundspeed``` and the ```Track made good true```. From the filtered GPGGA GPS datagram message only the ```Altitude``` data is used. All the filtered GPS data is shown on the display of the esp-box. When the groundspeed value is > 0.2 and <= 30 kts, the airplane is assumed to be taxying. If the groundspeed is 0, during a short period, the airplane is assumed to be stopped or parked. The states: 'airplane is stopped or parked' and 'airplaine is taxying' are shown on the display. As soon as the groundspeed exceeds 30 kts the following data will be displayed onto the display of the esp-box.
 ```
 - Latitude/Longitude;
 - Altitude;

@@ -5,7 +5,7 @@
 Display flown track and other GPS data to the display of the esp-box and use ground speed to control the displayed data
 
 Software:
-See 'Example'
+See 'Examples'
 
 Used hardware:
 

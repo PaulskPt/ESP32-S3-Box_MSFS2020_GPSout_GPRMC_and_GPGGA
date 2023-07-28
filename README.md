@@ -57,8 +57,8 @@ Data Indicator LED:
 Many USB-to-Serial converters have a LED that signals the presence of data. The CP2102N and YP-5 listed under c) above have such a LED.
 The script does blink the RGB LED on the piggy-back external board in color green at the moment valid GPS data has been received.
 
-Two versions
-============
+Three versions
+==============
 
 Version 1:
 ==========
@@ -73,6 +73,15 @@ Version 2 has the following additions:
   The script connects automatically to the WiFi Access Point of your choice (set the ```ssid``` and ```password``` in file ```.env```. Do the same in file ```secrets.py``` for backup situations). When a WiFi connection has been established, the script gets the date & time from ```Adafruit IO Time Service```, at intervals (set through local variable: ```interval_t``` in function loop() ). The value of ```intverval_t``` defaults to 600 seconds or 10 minutes. The internal Realtime Clock (RTC) will be synchronized with values of the received date & time. Note that one needs to set the values for the keys ```aio_username``` and ```aio_key``` in file ```secrets.py```.
 - Implementation of display touch. This is still in development. The idea is to 'jump' to a settings menu after a touch event has been recognized.
   In this moment are added the functions: ```clr_touch(), ck_touch() and menu_touch()```. At the start of the script, just behind the creation of the touch type object (tt), a call is being made to ```clr_touch()``` to empty touch events that could have been active at the start of the script. Then, in every iteration of ```loop()```, also a call has made to ```clr_touch()``` when the global flag ```tt_touched``` is True.
+
+Version 3:
+==========
+This version has the following addition:
+Added functionality to 'capture' the 'red circle' button on the ESP32-S3-Box (doesn't exist on the 'Lite' version).
+Added a global flag 'red_circle_flag'
+At the capture of a red circle button press the script will call sys.exit() and the execution will stop. It functions as a KeyboardInterrupt.
+To achieve this a function is_exit() has been added. This function is called from functions loop() and ck_uart().
+Sure one can change this to have some other function called upon the red circle button press.
 
 I used the Mu-editor app to save, edit and test the script file: ```code.py```. I also used VSCode to find bugs and to copy the list of variables and functions.
 

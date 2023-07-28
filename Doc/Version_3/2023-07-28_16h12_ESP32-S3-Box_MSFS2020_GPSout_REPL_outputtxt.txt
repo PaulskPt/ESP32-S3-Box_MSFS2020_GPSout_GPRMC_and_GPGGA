@@ -1,0 +1,104 @@
+Friday 2023-07-28, 15h48 pt
+
+Circuitpython ESP32-S3-Box MSFS2020 GPSout GPRMC and GPGGA via serial 
+with touch and capture red circle button press
+
+]0;🐍Wi-Fi: No IP | code.py | 8.2.1\]0;🐍Wi-Fi: No IP | code.py | 8.2.1\
+connected to: 'Vodafone-8D96F1'
+Resolved google address: '216.58.215.174'
+Ping google.com [216.58.215.174]: 75 ms
+loop(): my_machine= "ESP32-S3-Box-2.5 with ESP32S3"
+
+MSFS2020 GPS GPRMC data reception decoder script
+(https://github.com/PaulskPt/ESP32-S3-Box_MSFS2020_GPSout_GPRMC_and_GPGGA)
+
+Number of loops in this run: 99
+........................
+loop(): elapsed time since script (re-)start: 34.14
+loop(): elapsed_t % 600 = 34
+loop(): red_circle_flag= False
+
+Start of loop 1
+ck_uart(): nr of bytes=  147
+ck_uart(): rcvd data: bytearray(b'$GPRMC,143637.00,A,0000.0000,N,00000.0000,E,0.0,360.0,290723,4.3,W*41\r\n$GPGGA,143637.00,0000.0000,N,00000.0000,E,1,05,0.0,0.0,M,0.0,M,0.0,0000*73\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): rx_buffer[-20:]= 'bytearray(b'00*73\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')'
+ck_uart(): n1 = 2
+ck_uart(): * at -17, $GPRMC at 0, $GPGGA at 71, n4 =110
+loop(): characters rcvd:  147
+loop(): split_types() result = True
+ck_gs():  value of gs = 0.0, len(gs) = 3
+is_ac_stopped():  value of v_gs = 0
+is_ac_stopped():  lelapsed:False. lacStopMsgShown: False
+loop(): elapsed time since script (re-)start: 175.976
+loop(): elapsed_t % 600 = 175
+loop(): red_circle_flag= False
+
+Start of loop 2
+ck_uart(): nr of bytes=  147
+ck_uart(): rcvd data: bytearray(b'$GPRMC,140204.00,A,0000.0245,N,00000.8385,E,0.0,360.0,290723,4.3,W*43\r\n$GPGGA,140204.00,0000.0245,N,00000.8385,E,1,05,0.0,1.3,M,0.0,M,0.0,0000*73\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): rx_buffer[-20:]= 'bytearray(b'00*73\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')'
+ck_uart(): n1 = 2
+ck_uart(): * at -17, $GPRMC at 0, $GPGGA at 71, n4 =110
+loop(): characters rcvd:  147
+loop(): split_types() result = True
+ck_gs():  value of gs = 0.0, len(gs) = 3
+is_ac_stopped():  value of v_gs = 0
+is_ac_stopped():  lelapsed:True. lacStopMsgShown: False
+is_ac_stopped(): Aircraft is stopped or parked
+loop(): elapsed time since script (re-)start: 266.502
+loop(): elapsed_t % 600 = 266
+loop(): red_circle_flag= False
+
+[...]
+
+Start of loop 175
+ck_uart(): nr of bytes=  150
+ck_uart(): rcvd data: bytearray(b'$GPRMC,141124.00,A,5050.2859,N,00025.2699,W,86.2,279.7,290723,0.3,E*75\r\n$GPGGA,141124.00,5050.2859,N,00025.2699,W,1,05,0.0,587.0,M,0.0,M,0.0,0000*69\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): rx_buffer[-20:]= 'bytearray(b',0000*69\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')'
+ck_uart(): n1 = 5
+ck_uart(): * at -14, $GPRMC at 0, $GPGGA at 72, n4 =112
+loop(): characters rcvd:  150
+loop(): split_types() result = True
+ck_gs():  value of gs = 86.2, len(gs) = 4
+is_ac_stopped():  value of v_gs = 86
+ck_gs():  value of gs = 86.2, len(gs) = 4
+loop(): handling msg nr: 87
+lcd_pr_msgs(): Duration rx -> lcd: 224 mSecs
+loop(): gc.mem_free()= 8103584
+End of loop 175
+........................
+loop(): elapsed time since script (re-)start: 840.629
+loop(): elapsed_t % 600 = 239
+loop(): red_circle_flag= False
+
+Start of loop 176
+ck_uart(): nr of bytes=  150
+ck_uart(): rcvd data: bytearray(b'$GPRMC,141127.00,A,5050.2966,N,00025.3674,W,86.2,279.8,290723,0.3,E*76\r\n$GPGGA,141127.00,5050.2966,N,00025.3674,W,1,05,0.0,586.3,M,0.0,M,0.0,0000*67\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+ck_uart(): rx_buffer[-20:]= 'bytearray(b',0000*67\r\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')'
+ck_uart(): n1 = 5
+ck_uart(): * at -14, $GPRMC at 0, $GPGGA at 72, n4 =112
+loop(): characters rcvd:  150
+loop(): split_types() result = True
+ck_gs():  value of gs = 86.2, len(gs) = 4
+is_ac_stopped():  value of v_gs = 86
+ck_gs():  value of gs = 86.2, len(gs) = 4
+loop(): handling msg nr: 88
+lcd_pr_msgs(): Duration rx -> lcd: 216 mSecs
+loop(): gc.mem_free()= 8103616
+End of loop 176
+........................
+loop(): elapsed time since script (re-)start: 843.255
+loop(): elapsed_t % 600 = 241
+loop(): red_circle_flag= False
+
+Start of loop 177
+ck_touch(): red circle button has been pressed.
+loop(): characters rcvd:  -1
+'red circle button' pressed.Going to quit...
+main(): loop() returned with: "False"
+main(): red circle button pressed. Exiting...
+]0;🐱92.168.1.101 | Done | 8.2.1\
+Code done running.
+]0;👗i-Fi: off | Done | 8.2.1\]0;🐍Wi-Fi: off | REPL | 8.2.1\
+Adafruit CircuitPython 8.2.1 on 2023-07-25; ESP32-S3-Box-2.5 with ESP32S3
+>>> [D

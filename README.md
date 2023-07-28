@@ -79,8 +79,8 @@ Version 3:
 This version has the following addition:
 Added functionality to 'capture' the 'red circle' button on the ESP32-S3-Box (doesn't exist on the 'Lite' version).
 Added a global flag 'red_circle_flag'
-At the capture of a red circle button press the script will call sys.exit() and the execution will stop. It functions as a KeyboardInterrupt.
-To achieve this a function is_exit() has been added. This function is called from functions loop() and ck_uart().
+At the capture of a red circle button press a red_circle_flag will be set, then in main() this will result in a 'raise KeyboardInterrupt' and the execution will stop.
+To achieve this a function ck_touch() has been added. This function is called from functions loop() and ck_uart().
 Sure one can change this to have some other function called upon the red circle button press.
 
 I used the Mu-editor app to save, edit and test the script file: ```code.py```. I also used VSCode to find bugs and to copy the list of variables and functions.
